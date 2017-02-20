@@ -4,7 +4,7 @@ class PicturesController < ApplicationController
   # GET /pictures
   # GET /pictures.json
   def index
-    @pictures = Picture.all
+    @pictures = Picture.all.where("expire < ? OR expire IS ?", Time.now, nil)
   end
 
   # GET /pictures/1

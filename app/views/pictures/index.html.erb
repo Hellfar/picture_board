@@ -3,10 +3,8 @@
 <table>
   <thead>
     <tr>
-      <th>Path</th>
+      <th>Image</th>
       <th>user</th>
-      <th>Customer</th>
-      <th>Expire</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,13 +12,12 @@
   <tbody>
     <% @pictures.each do |picture| %>
       <tr>
-        <td><%= picture.path %></td>
-        <td><%= picture.user %></td>
-        <td><%= picture.customer %></td>
-        <td><%= picture.expire %></td>
-        <td><%= link_to 'Show', picture %></td>
-        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><img src="<%= picture.path %>"  width="50" height="50" /></td>
+        <td><%= picture.user.email %></td>
+        <td><%= link_to 'Consulter', picture %></td>
+        <td><%= link_to 'Reserver', controller: "pictures", action: "book", id: picture %></td>
+        <!-- <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
+        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>

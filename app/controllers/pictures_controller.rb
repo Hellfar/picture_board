@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-  before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :set_picture, only: [:show, :edit, :update, :destroy, :book]
 
   # GET /pictures
   # GET /pictures.json
@@ -25,6 +25,7 @@ class PicturesController < ApplicationController
   # POST /pictures.json
   def create
     @picture = Picture.new(picture_params)
+    @picture.user = current_user
 
     respond_to do |format|
       if @picture.save
@@ -58,6 +59,18 @@ class PicturesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to pictures_url, notice: 'Picture was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def book
+    respond_to do |format|
+      if @picture.update(customer: current_user.id, expire: Time.now + 86400)
+        format.html { redirect_to @picture, notice: 'Picture was successfully booked.' }
+        format.json { render :show, status: :ok, location: @picture }
+      else
+        format.html { render :edit }
+        format.json { render json: @picture.errors, status: :unprocessable_entity }
+      end
     end
   end
 

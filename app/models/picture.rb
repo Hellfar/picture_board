@@ -1,5 +1,5 @@
 class Picture < ApplicationRecord
-  searchkick
+  # searchkick
 
   belongs_to :user
 end

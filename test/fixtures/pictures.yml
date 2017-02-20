@@ -2,12 +2,12 @@
 
 one:
   path: MyString
-  owner: 
-  customer: 
+  user:
+  customer:
   expire: 2017-02-18 21:44:03
 
 two:
   path: MyString
-  owner: 
-  customer: 
+  user: 
+  customer:
   expire: 2017-02-18 21:44:03

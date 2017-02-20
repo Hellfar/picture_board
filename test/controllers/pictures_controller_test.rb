@@ -17,7 +17,7 @@ class PicturesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create picture" do
     assert_difference('Picture.count') do
-      post pictures_url, params: { picture: { customer: @picture.customer, expire: @picture.expire, owner: @picture.owner, path: @picture.path } }
+      post pictures_url, params: { picture: { customer: @picture.customer, expire: @picture.expire, user: @picture.user, path: @picture.path } }
     end
 
     assert_redirected_to picture_url(Picture.last)
@@ -34,7 +34,7 @@ class PicturesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update picture" do
-    patch picture_url(@picture), params: { picture: { customer: @picture.customer, expire: @picture.expire, owner: @picture.owner, path: @picture.path } }
+    patch picture_url(@picture), params: { picture: { customer: @picture.customer, expire: @picture.expire, user: @picture.user, path: @picture.path } }
     assert_redirected_to picture_url(@picture)
   end
 

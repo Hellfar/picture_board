@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20170218204403) do
   create_table "pictures", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "path"
     t.uuid     "user_id",    null: false
-    t.uuid     "customer",   null: false
+    t.uuid     "customer"
     t.datetime "expire"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -2,12 +2,12 @@
 
 one:
   path: MyString
-  user:
+  user: u_one
   customer:
   expire: 2017-02-18 21:44:03
 
 two:
   path: MyString
-  user: 
+  user: u_two
   customer:
   expire: 2017-02-18 21:44:03

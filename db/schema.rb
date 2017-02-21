@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 20170218204403) do
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
-  create_table "pictures", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+  create_table "offers", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "path"
     t.uuid     "user_id",    null: false
     t.uuid     "customer"
     t.datetime "expire"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_pictures_on_user_id", using: :btree
+    t.index ["user_id"], name: "index_offers_on_user_id", using: :btree
   end
 
   create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
@@ -43,5 +43,5 @@ ActiveRecord::Schema.define(version: 20170218204403) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "pictures", "users"
+  add_foreign_key "offers", "users"
 end

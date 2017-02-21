@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :pictures
-  get '/pictures/book/:id', to: 'pictures#book'
+  resources :offers
+  get '/offers/book/:id', to: 'offers#book'
 
   devise_for :users
 

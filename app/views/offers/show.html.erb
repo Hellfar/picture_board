@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Path:</strong>
+  <img src="<%= @offer.path %>"  width="50" height="50" />
+</p>
+
+<p>
+  <strong>user:</strong>
+  <%= @offer.user %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @offer.customer %>
+</p>
+
+<p>
+  <strong>Expire:</strong>
+  <%= @offer.expire %>
+</p>
+
+<%= link_to 'Edit', edit_offer_path(@offer) %> |
+<%= link_to 'Back', offers_path %>

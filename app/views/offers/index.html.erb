@@ -1,0 +1,28 @@
+<h1>Offers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>user</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @offers.each do |offer| %>
+      <tr>
+        <td><img src="<%= offer.path.current_path %>"  width="50" height="50" /></td>
+        <td><%= offer.user.email %></td>
+        <td><%= link_to 'Consulter', offer %></td>
+        <td><%= link_to 'Reserver', controller: "offers", action: "book", id: offer %></td>
+        <!-- <td><%= link_to 'Edit', edit_offer_path(offer) %></td>
+        <td><%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Offer', new_offer_path %>

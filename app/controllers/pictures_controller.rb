@@ -4,17 +4,21 @@ class PicturesController < ApplicationController
   # GET /pictures
   # GET /pictures.json
   def index
+    authorize Picture
     @pictures = Picture.all.where("expire < ? OR expire IS ?", Time.now, nil)
   end
 
   # GET /pictures/1
   # GET /pictures/1.json
   def show
+    authorize @picture
   end
 
   # GET /pictures/new
   def new
     @picture = Picture.new
+    authorize @picture
+    @picture.save
   end
 
   # GET /pictures/1/edit

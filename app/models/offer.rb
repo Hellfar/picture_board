@@ -3,5 +3,5 @@ class Offer < ApplicationRecord
 
   belongs_to :user
 
-  mount_uploader :path, PictureUploader
+  mount_uploader :picture, PictureUploader
 end

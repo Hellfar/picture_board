@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :path %>
-    <%= f.text_field :path %>
+    <%= f.label :picture %>
+    <%= f.file_field(:post, :image, accept: 'image/png,image/gif,image/jpeg') %>
   </div>
 
   <div class="actions">

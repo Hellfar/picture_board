@@ -1,5 +1,5 @@
 class Offer < ApplicationRecord
-  # searchkick
+  searchkick
 
   belongs_to :user
 

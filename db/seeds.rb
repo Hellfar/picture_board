@@ -20,3 +20,5 @@ Dir.entries(file_seeds_dir).each do | file_name |
     end
   end
 end
+
+Offer.reindex

@@ -1,7 +1,7 @@
 class OfferPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all.where("expire < ? OR expire IS ?", Time.now, nil)
+      scope
     end
   end
 

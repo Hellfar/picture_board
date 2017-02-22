@@ -6,7 +6,10 @@ class OffersController < ApplicationController
   def index
     authorize Offer
 
-    @offers = policy_scope(Offer).search params[:q], fields: [:name] if params[:q]
+    @offers = policy_scope(Offer)
+    @offers = @offers.search params[:q], fields: [:name] if params[:q]
+    @offers = @offers.where("expire < ? OR expire IS ?", Time.now, nil)
+    @booked = Offer.all.where("expire > ? AND customer = ?", Time.now, current_user.id)
   end
 
   # GET /offers/1

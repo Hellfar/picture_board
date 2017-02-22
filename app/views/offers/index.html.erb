@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Image</th>
+      <th>Name</th>
       <th>user</th>
       <th colspan="3"></th>
     </tr>
@@ -13,6 +14,7 @@
     <% @offers.each do |offer| %>
       <tr>
         <td><img src="<%= offer.picture %>"  width="50" height="50" /></td>
+        <td><%= offer.name %></td>
         <td><%= offer.user.email %></td>
         <td><%= link_to 'Consulter', offer %></td>
         <td><%= link_to 'Reserver', controller: "offers", action: "book", id: offer %></td>

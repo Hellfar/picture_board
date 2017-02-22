@@ -7,11 +7,8 @@ class OffersController < ApplicationController
     authorize Offer
 
     @offers = Offer.all.where("expire < ? OR expire IS ?", Time.now, nil)
+    @offers = @offers.search params[:q], fields: [:name] if params[:q]
   end
-
-  # def search
-  #   @offers
-  # end
 
   # GET /offers/1
   # GET /offers/1.json

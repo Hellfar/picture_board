@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 o_one:
+  name: "A"
   picture: "A.png"
   user: u_one
   customer:
   expire: 2017-02-18 21:44:03
 
 o_two:
-  picture: "A.png"
+  name: "B"
+  picture: "B.png"
   user: u_two
   customer:
   expire: 2017-02-18 21:44:03

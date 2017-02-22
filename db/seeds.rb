@@ -14,7 +14,7 @@ Dir.entries(file_seeds_dir).each do | file_name |
   unless file_name == "." or file_name == ".."
     begin
       f = File.open "#{file_seeds_dir}#{File::SEPARATOR}#{file_name}" rescue nil
-      Offer.create user: provider, picture: f
+      Offer.create user: provider, name: File.basename("#{file_name}", ".*"), picture: f
     ensure
       f.close if f
     end
@@ -22,3 +22,5 @@ Dir.entries(file_seeds_dir).each do | file_name |
 end
 
 Offer.reindex
+
+puts "You should put your own name to make efficient tests."

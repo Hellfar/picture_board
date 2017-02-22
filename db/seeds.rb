@@ -23,4 +23,4 @@ end
 
 Offer.reindex
 
-puts "You should put your own name to make efficient tests."
+puts "You should put your own offer name to make efficient tests."

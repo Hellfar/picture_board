@@ -7,18 +7,22 @@
 
 <p>
   <strong>user:</strong>
-  <%= @offer.user %>
+  <%= @offer.user.email %>
 </p>
 
-<p>
-  <strong>Customer:</strong>
-  <%= @offer.customer %>
-</p>
+<% if @offer.user == current_user %>
+  <p>
+    <strong>Customer:</strong>
+    <%= @offer.customer %>
+  </p>
 
-<p>
-  <strong>Expire:</strong>
-  <%= @offer.expire %>
-</p>
+  <p>
+    <strong>Expire:</strong>
+    <%= @offer.expire %>
+  </p>
+<% end %>
 
-<%= link_to 'Edit', edit_offer_path(@offer) %> |
+<% if @offer.user == current_user %>
+  <%= link_to 'Edit', edit_offer_path(@offer) %> |
+<% end %>
 <%= link_to 'Back', offers_path %>

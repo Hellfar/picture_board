@@ -10,7 +10,7 @@ class OfferPolicy < ApplicationPolicy
   end
 
   def show?
-    user && ((record.expire && (user == record.customer || record.expire < Time.now)) || not record.expire)
+    user && ((record.expire && (user == record.customer || record.expire < Time.now)) || record.expire == nil)
   end
 
   def create?

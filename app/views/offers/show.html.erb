@@ -30,4 +30,5 @@
 <% if @offer.user == current_user %>
   <%= link_to 'Edit', edit_offer_path(@offer) %> |
 <% end %>
+<%= link_to 'Reserver', controller: "offers", action: "book", id: @offer %> |
 <%= link_to 'Back', offers_path %>

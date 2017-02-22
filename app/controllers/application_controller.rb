@@ -11,9 +11,11 @@ class ApplicationController < ActionController::Base
   end
 
   def user_not_authorized
-    errors = ActiveModel::Errors.new(nil)
-    errors.add(:app, I18n.t('errors.not_authorized'))
-    render json: errors, status: :forbidden and return
+    # errors = ActiveModel::Errors.new(nil)
+    # errors.add(:app, I18n.t('errors.not_authorized'))
+    # render json: errors, status: :forbidden and return
+    flash[:alert] = I18n.t('errors.not_authorized')
+    redirect_to '/'
   end
 
   def request_formed_unproperly

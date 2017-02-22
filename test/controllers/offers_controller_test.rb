@@ -2,7 +2,16 @@ require 'test_helper'
 
 class OffersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @offer = offers(:one)
+    @offer = offers(:o_one)
+  end
+
+  test "has a picture" do
+    assert File.exists?(@offer.picture.file.path)
+  end
+
+  test "uploads a picture" do
+    offer = Offer.create!(:picture, fixture_file_upload('/files/tapir.jpg', 'image/jpg'))
+    assert(File.exists?(offer.reload.picture.file.path))
   end
 
   test "should get index" do

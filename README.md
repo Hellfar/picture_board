@@ -1,24 +1,31 @@
 # picture_board
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Dependencies
 
-Things you may want to cover:
+```
+  sudo add-apt-repository ppa:webupd8team/java
+  sudo apt-get update
+  sudo apt-get install oracle-java8-installer
+  sudo apt install oracle-java8-set-default
+```
 
-* Ruby version
+- Download: [`elasticsearch-5.2.1.tar.gz`](https://www.elastic.co/downloads/elasticsearch).
+- Enter the extracted downloaded file.
+- Run: `./bin/elasticsearch &`
 
-* System dependencies
+## Install
 
-* Configuration
+```
+    cd somewhere
+    git clone https://github.com/Hellfar/picture_board.git
+    cd picture_board
+    bundle install
+    rake db:create
+    rake db:migrate
+    rake db:seed
 
-* Database creation
+    rake searchkick:reindex
+    rake jobs:work
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    rails s -d
+```

@@ -1,6 +1,28 @@
 class UserController < ApplicationController
+  before_action :set_offer, only: [:show, :edit, :update, :destroy]
+
   def register_view
     render 'users/registrations/new'
+  end
+
+  def index
+    authorize User
+  end
+
+  def show
+    authorize @offer
+  end
+
+  def create
+    authorize Offer
+  end
+
+  def update
+    authorize @offer
+  end
+
+  def destroy
+    authorize @offer
   end
 
   private

@@ -12,7 +12,7 @@
   <tbody>
     <% @offers.each do |offer| %>
       <tr>
-        <td><img src="<%= offer.picture.current_path %>"  width="50" height="50" /></td>
+        <td><img src="<%= offer.picture %>"  width="50" height="50" /></td>
         <td><%= offer.user.email %></td>
         <td><%= link_to 'Consulter', offer %></td>
         <td><%= link_to 'Reserver', controller: "offers", action: "book", id: offer %></td>

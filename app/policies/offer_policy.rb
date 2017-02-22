@@ -24,4 +24,8 @@ class OfferPolicy < ApplicationPolicy
   def destroy?
     user == record.user
   end
+
+  def book?
+    user
+  end
 end

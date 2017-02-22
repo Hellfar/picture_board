@@ -17,7 +17,7 @@ class OffersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create offer" do
     assert_difference('Offer.count') do
-      post offers_url, params: { offer: { customer: @offer.customer, expire: @offer.expire, user: @offer.user, path: @offer.path } }
+      post offers_url, params: { offer: { customer: @offer.customer, expire: @offer.expire, user: @offer.user, picture: @offer.picture } }
     end
 
     assert_redirected_to offer_url(Offer.last)
@@ -34,7 +34,7 @@ class OffersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update offer" do
-    patch offer_url(@offer), params: { offer: { customer: @offer.customer, expire: @offer.expire, user: @offer.user, path: @offer.path } }
+    patch offer_url(@offer), params: { offer: { customer: @offer.customer, expire: @offer.expire, user: @offer.user, picture: @offer.picture } }
     assert_redirected_to offer_url(@offer)
   end
 

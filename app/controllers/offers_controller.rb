@@ -36,7 +36,7 @@ class OffersController < ApplicationController
 
     respond_to do |format|
       if @offer.save
-        Offer.send_later(:reindex)
+        Offer.delay.reindex
 
         format.html { redirect_to @offer, notice: 'Offer was successfully created.' }
         format.json { render :show, status: :created, location: @offer }
@@ -54,7 +54,7 @@ class OffersController < ApplicationController
 
     respond_to do |format|
       if @offer.update(offer_params)
-        Offer.send_later(:reindex)
+        Offer.delay.reindex
 
         format.html { redirect_to @offer, notice: 'Offer was successfully updated.' }
         format.json { render :show, status: :ok, location: @offer }
@@ -71,7 +71,7 @@ class OffersController < ApplicationController
     authorize @offer
 
     @offer.destroy
-    Offer.send_later(:reindex)
+    Offer.delay.reindex
 
     respond_to do |format|
       format.html { redirect_to offers_url, notice: 'Offer was successfully destroyed.' }

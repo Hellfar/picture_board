@@ -24,8 +24,8 @@
     rake db:migrate
     rake db:seed
 
-    rake searchkick:reindex
-    rake jobs:work
+    rake searchkick:reindex CLASS=Offer
+    rake jobs:work &
 
     rails s -d
 ```

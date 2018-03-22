@@ -13,6 +13,8 @@
 - Enter the extracted downloaded file.
 - Run: `./bin/elasticsearch &`
 
+!!!Wont work with Elasticsearch 6!!!
+
 ## Install
 
 ```

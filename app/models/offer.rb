@@ -6,6 +6,10 @@ class Offer < ApplicationRecord
   mount_uploader :picture, PictureUploader
 
   def booked?
-    self.expire > Time.now
+    if self.expire
+      self.expire > Time.now
+    else
+      false
+    end
   end
 end
